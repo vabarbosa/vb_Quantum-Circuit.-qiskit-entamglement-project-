@@ -1,2 +1,2 @@
-# Quantum-Circuit.-qiskit-entamglement-project-
+# Quantum-Circuit.-qiskit-entanglement-project-
 Quantum Computing 
