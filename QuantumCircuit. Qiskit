@@ -1,0 +1,531 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "310b2f4a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from qiskit import *\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "e56a972b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "qr = QuantumRegister(2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "2e6071b2",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cr = ClassicalRegister(2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "c6e33c80",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "circuit = QuantumCircuit(qr, cr)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "c7d78593",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "SyntaxError",
+     "evalue": "invalid syntax (3132792297.py, line 1)",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;36m  Cell \u001b[0;32mIn[5], line 1\u001b[0;36m\u001b[0m\n\u001b[0;31m    lmatplotlib inline\u001b[0m\n\u001b[0m                ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m invalid syntax\n"
+     ]
+    }
+   ],
+   "source": [
+    "lmatplotlib inline"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "a3b98cda",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Matplotlib is building the font cache; this may take a moment.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%matplotlib inline\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "cc5223ac",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<pre style=\"word-wrap: normal;white-space: pre;background: #fff0;line-height: 1.1;font-family: &quot;Courier New&quot;,Courier,monospace\">      \n",
+       "q0_0: \n",
+       "      \n",
+       "q0_1: \n",
+       "      \n",
+       "c0: 2/\n",
+       "      </pre>"
+      ],
+      "text/plain": [
+       "      \n",
+       "q0_0: \n",
+       "      \n",
+       "q0_1: \n",
+       "      \n",
+       "c0: 2/\n",
+       "      "
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "circuit.draw()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "e02f4e60",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<qiskit.circuit.instructionset.InstructionSet at 0x122bc2170>"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "circuit.h(qr[0])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "28a45286",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "VisualizationError",
+     "evalue": "'Invalid output type mp1 selected. The only valid choices are text, latex, latex_source, and mpl'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mVisualizationError\u001b[0m                        Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[11], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m circuit\u001b[38;5;241m.\u001b[39mdraw(output\u001b[38;5;241m=\u001b[39m\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mmp1\u001b[39m\u001b[38;5;124m'\u001b[39m)\n",
+      "File \u001b[0;32m~/anaconda3/lib/python3.11/site-packages/qiskit/circuit/quantumcircuit.py:1913\u001b[0m, in \u001b[0;36mQuantumCircuit.draw\u001b[0;34m(self, output, scale, filename, style, interactive, plot_barriers, reverse_bits, justify, vertical_compression, idle_wires, with_layout, fold, ax, initial_state, cregbundle, wire_order)\u001b[0m\n\u001b[1;32m   1910\u001b[0m \u001b[38;5;66;03m# pylint: disable=cyclic-import\u001b[39;00m\n\u001b[1;32m   1911\u001b[0m \u001b[38;5;28;01mfrom\u001b[39;00m \u001b[38;5;21;01mqiskit\u001b[39;00m\u001b[38;5;21;01m.\u001b[39;00m\u001b[38;5;21;01mvisualization\u001b[39;00m \u001b[38;5;28;01mimport\u001b[39;00m circuit_drawer\n\u001b[0;32m-> 1913\u001b[0m \u001b[38;5;28;01mreturn\u001b[39;00m circuit_drawer(\n\u001b[1;32m   1914\u001b[0m     \u001b[38;5;28mself\u001b[39m,\n\u001b[1;32m   1915\u001b[0m     scale\u001b[38;5;241m=\u001b[39mscale,\n\u001b[1;32m   1916\u001b[0m     filename\u001b[38;5;241m=\u001b[39mfilename,\n\u001b[1;32m   1917\u001b[0m     style\u001b[38;5;241m=\u001b[39mstyle,\n\u001b[1;32m   1918\u001b[0m     output\u001b[38;5;241m=\u001b[39moutput,\n\u001b[1;32m   1919\u001b[0m     interactive\u001b[38;5;241m=\u001b[39minteractive,\n\u001b[1;32m   1920\u001b[0m     plot_barriers\u001b[38;5;241m=\u001b[39mplot_barriers,\n\u001b[1;32m   1921\u001b[0m     reverse_bits\u001b[38;5;241m=\u001b[39mreverse_bits,\n\u001b[1;32m   1922\u001b[0m     justify\u001b[38;5;241m=\u001b[39mjustify,\n\u001b[1;32m   1923\u001b[0m     vertical_compression\u001b[38;5;241m=\u001b[39mvertical_compression,\n\u001b[1;32m   1924\u001b[0m     idle_wires\u001b[38;5;241m=\u001b[39midle_wires,\n\u001b[1;32m   1925\u001b[0m     with_layout\u001b[38;5;241m=\u001b[39mwith_layout,\n\u001b[1;32m   1926\u001b[0m     fold\u001b[38;5;241m=\u001b[39mfold,\n\u001b[1;32m   1927\u001b[0m     ax\u001b[38;5;241m=\u001b[39max,\n\u001b[1;32m   1928\u001b[0m     initial_state\u001b[38;5;241m=\u001b[39minitial_state,\n\u001b[1;32m   1929\u001b[0m     cregbundle\u001b[38;5;241m=\u001b[39mcregbundle,\n\u001b[1;32m   1930\u001b[0m     wire_order\u001b[38;5;241m=\u001b[39mwire_order,\n\u001b[1;32m   1931\u001b[0m )\n",
+      "File \u001b[0;32m~/anaconda3/lib/python3.11/site-packages/qiskit/visualization/circuit/circuit_visualization.py:309\u001b[0m, in \u001b[0;36mcircuit_drawer\u001b[0;34m(circuit, scale, filename, style, output, interactive, plot_barriers, reverse_bits, justify, vertical_compression, idle_wires, with_layout, fold, ax, initial_state, cregbundle, wire_order)\u001b[0m\n\u001b[1;32m    292\u001b[0m     image \u001b[38;5;241m=\u001b[39m _matplotlib_circuit_drawer(\n\u001b[1;32m    293\u001b[0m         circuit,\n\u001b[1;32m    294\u001b[0m         scale\u001b[38;5;241m=\u001b[39mscale,\n\u001b[0;32m   (...)\u001b[0m\n\u001b[1;32m    306\u001b[0m         wire_order\u001b[38;5;241m=\u001b[39mcomplete_wire_order,\n\u001b[1;32m    307\u001b[0m     )\n\u001b[1;32m    308\u001b[0m \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[0;32m--> 309\u001b[0m     \u001b[38;5;28;01mraise\u001b[39;00m VisualizationError(\n\u001b[1;32m    310\u001b[0m         \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mInvalid output type \u001b[39m\u001b[38;5;132;01m%s\u001b[39;00m\u001b[38;5;124m selected. The only valid choices \u001b[39m\u001b[38;5;124m\"\u001b[39m\n\u001b[1;32m    311\u001b[0m         \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mare text, latex, latex_source, and mpl\u001b[39m\u001b[38;5;124m\"\u001b[39m \u001b[38;5;241m%\u001b[39m output\n\u001b[1;32m    312\u001b[0m     )\n\u001b[1;32m    313\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m image \u001b[38;5;129;01mand\u001b[39;00m interactive:\n\u001b[1;32m    314\u001b[0m     image\u001b[38;5;241m.\u001b[39mshow()\n",
+      "\u001b[0;31mVisualizationError\u001b[0m: 'Invalid output type mp1 selected. The only valid choices are text, latex, latex_source, and mpl'"
+     ]
+    }
+   ],
+   "source": [
+    "circuit.draw(output='mp1')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "9e840f41",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "VisualizationError",
+     "evalue": "'Invalid output type mp1 selected. The only valid choices are text, latex, latex_source, and mpl'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mVisualizationError\u001b[0m                        Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[12], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m circuit\u001b[38;5;241m.\u001b[39mdraw(output\u001b[38;5;241m=\u001b[39m\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mmp1\u001b[39m\u001b[38;5;124m'\u001b[39m)\n",
+      "File \u001b[0;32m~/anaconda3/lib/python3.11/site-packages/qiskit/circuit/quantumcircuit.py:1913\u001b[0m, in \u001b[0;36mQuantumCircuit.draw\u001b[0;34m(self, output, scale, filename, style, interactive, plot_barriers, reverse_bits, justify, vertical_compression, idle_wires, with_layout, fold, ax, initial_state, cregbundle, wire_order)\u001b[0m\n\u001b[1;32m   1910\u001b[0m \u001b[38;5;66;03m# pylint: disable=cyclic-import\u001b[39;00m\n\u001b[1;32m   1911\u001b[0m \u001b[38;5;28;01mfrom\u001b[39;00m \u001b[38;5;21;01mqiskit\u001b[39;00m\u001b[38;5;21;01m.\u001b[39;00m\u001b[38;5;21;01mvisualization\u001b[39;00m \u001b[38;5;28;01mimport\u001b[39;00m circuit_drawer\n\u001b[0;32m-> 1913\u001b[0m \u001b[38;5;28;01mreturn\u001b[39;00m circuit_drawer(\n\u001b[1;32m   1914\u001b[0m     \u001b[38;5;28mself\u001b[39m,\n\u001b[1;32m   1915\u001b[0m     scale\u001b[38;5;241m=\u001b[39mscale,\n\u001b[1;32m   1916\u001b[0m     filename\u001b[38;5;241m=\u001b[39mfilename,\n\u001b[1;32m   1917\u001b[0m     style\u001b[38;5;241m=\u001b[39mstyle,\n\u001b[1;32m   1918\u001b[0m     output\u001b[38;5;241m=\u001b[39moutput,\n\u001b[1;32m   1919\u001b[0m     interactive\u001b[38;5;241m=\u001b[39minteractive,\n\u001b[1;32m   1920\u001b[0m     plot_barriers\u001b[38;5;241m=\u001b[39mplot_barriers,\n\u001b[1;32m   1921\u001b[0m     reverse_bits\u001b[38;5;241m=\u001b[39mreverse_bits,\n\u001b[1;32m   1922\u001b[0m     justify\u001b[38;5;241m=\u001b[39mjustify,\n\u001b[1;32m   1923\u001b[0m     vertical_compression\u001b[38;5;241m=\u001b[39mvertical_compression,\n\u001b[1;32m   1924\u001b[0m     idle_wires\u001b[38;5;241m=\u001b[39midle_wires,\n\u001b[1;32m   1925\u001b[0m     with_layout\u001b[38;5;241m=\u001b[39mwith_layout,\n\u001b[1;32m   1926\u001b[0m     fold\u001b[38;5;241m=\u001b[39mfold,\n\u001b[1;32m   1927\u001b[0m     ax\u001b[38;5;241m=\u001b[39max,\n\u001b[1;32m   1928\u001b[0m     initial_state\u001b[38;5;241m=\u001b[39minitial_state,\n\u001b[1;32m   1929\u001b[0m     cregbundle\u001b[38;5;241m=\u001b[39mcregbundle,\n\u001b[1;32m   1930\u001b[0m     wire_order\u001b[38;5;241m=\u001b[39mwire_order,\n\u001b[1;32m   1931\u001b[0m )\n",
+      "File \u001b[0;32m~/anaconda3/lib/python3.11/site-packages/qiskit/visualization/circuit/circuit_visualization.py:309\u001b[0m, in \u001b[0;36mcircuit_drawer\u001b[0;34m(circuit, scale, filename, style, output, interactive, plot_barriers, reverse_bits, justify, vertical_compression, idle_wires, with_layout, fold, ax, initial_state, cregbundle, wire_order)\u001b[0m\n\u001b[1;32m    292\u001b[0m     image \u001b[38;5;241m=\u001b[39m _matplotlib_circuit_drawer(\n\u001b[1;32m    293\u001b[0m         circuit,\n\u001b[1;32m    294\u001b[0m         scale\u001b[38;5;241m=\u001b[39mscale,\n\u001b[0;32m   (...)\u001b[0m\n\u001b[1;32m    306\u001b[0m         wire_order\u001b[38;5;241m=\u001b[39mcomplete_wire_order,\n\u001b[1;32m    307\u001b[0m     )\n\u001b[1;32m    308\u001b[0m \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[0;32m--> 309\u001b[0m     \u001b[38;5;28;01mraise\u001b[39;00m VisualizationError(\n\u001b[1;32m    310\u001b[0m         \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mInvalid output type \u001b[39m\u001b[38;5;132;01m%s\u001b[39;00m\u001b[38;5;124m selected. The only valid choices \u001b[39m\u001b[38;5;124m\"\u001b[39m\n\u001b[1;32m    311\u001b[0m         \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mare text, latex, latex_source, and mpl\u001b[39m\u001b[38;5;124m\"\u001b[39m \u001b[38;5;241m%\u001b[39m output\n\u001b[1;32m    312\u001b[0m     )\n\u001b[1;32m    313\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m image \u001b[38;5;129;01mand\u001b[39;00m interactive:\n\u001b[1;32m    314\u001b[0m     image\u001b[38;5;241m.\u001b[39mshow()\n",
+      "\u001b[0;31mVisualizationError\u001b[0m: 'Invalid output type mp1 selected. The only valid choices are text, latex, latex_source, and mpl'"
+     ]
+    }
+   ],
+   "source": [
+    "circuit.draw(output='mp1')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "6c151c33",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from qiskit import QuantumCircuit"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "3f8a8e0f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from qiskit.visualization import plot_bloch_multivector"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "d4b3f4e6",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'QuantumCircuit' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[1], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m circuit \u001b[38;5;241m=\u001b[39m QuantumCircuit(\u001b[38;5;241m2\u001b[39m)\n\u001b[1;32m      2\u001b[0m circuit\u001b[38;5;241m.\u001b[39mh(\u001b[38;5;241m0\u001b[39m)\n\u001b[1;32m      3\u001b[0m circuit\u001b[38;5;241m.\u001b[39mcx(\u001b[38;5;241m0\u001b[39m, \u001b[38;5;241m1\u001b[39m)\n",
+      "\u001b[0;31mNameError\u001b[0m: name 'QuantumCircuit' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "circuit = QuantumCircuit(2)\n",
+    "circuit.h(0)\n",
+    "circuit.cx(0, 1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "f30765b7",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "MissingOptionalLibraryError",
+     "evalue": "\"The 'pylatexenc' library is required to use 'MatplotlibDrawer'. You can install it with 'pip install pylatexenc'.\"",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mMissingOptionalLibraryError\u001b[0m               Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[18], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m circuit\u001b[38;5;241m.\u001b[39mdraw(output\u001b[38;5;241m=\u001b[39m\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mmpl\u001b[39m\u001b[38;5;124m'\u001b[39m)\n",
+      "File \u001b[0;32m~/anaconda3/lib/python3.11/site-packages/qiskit/circuit/quantumcircuit.py:1913\u001b[0m, in \u001b[0;36mQuantumCircuit.draw\u001b[0;34m(self, output, scale, filename, style, interactive, plot_barriers, reverse_bits, justify, vertical_compression, idle_wires, with_layout, fold, ax, initial_state, cregbundle, wire_order)\u001b[0m\n\u001b[1;32m   1910\u001b[0m \u001b[38;5;66;03m# pylint: disable=cyclic-import\u001b[39;00m\n\u001b[1;32m   1911\u001b[0m \u001b[38;5;28;01mfrom\u001b[39;00m \u001b[38;5;21;01mqiskit\u001b[39;00m\u001b[38;5;21;01m.\u001b[39;00m\u001b[38;5;21;01mvisualization\u001b[39;00m \u001b[38;5;28;01mimport\u001b[39;00m circuit_drawer\n\u001b[0;32m-> 1913\u001b[0m \u001b[38;5;28;01mreturn\u001b[39;00m circuit_drawer(\n\u001b[1;32m   1914\u001b[0m     \u001b[38;5;28mself\u001b[39m,\n\u001b[1;32m   1915\u001b[0m     scale\u001b[38;5;241m=\u001b[39mscale,\n\u001b[1;32m   1916\u001b[0m     filename\u001b[38;5;241m=\u001b[39mfilename,\n\u001b[1;32m   1917\u001b[0m     style\u001b[38;5;241m=\u001b[39mstyle,\n\u001b[1;32m   1918\u001b[0m     output\u001b[38;5;241m=\u001b[39moutput,\n\u001b[1;32m   1919\u001b[0m     interactive\u001b[38;5;241m=\u001b[39minteractive,\n\u001b[1;32m   1920\u001b[0m     plot_barriers\u001b[38;5;241m=\u001b[39mplot_barriers,\n\u001b[1;32m   1921\u001b[0m     reverse_bits\u001b[38;5;241m=\u001b[39mreverse_bits,\n\u001b[1;32m   1922\u001b[0m     justify\u001b[38;5;241m=\u001b[39mjustify,\n\u001b[1;32m   1923\u001b[0m     vertical_compression\u001b[38;5;241m=\u001b[39mvertical_compression,\n\u001b[1;32m   1924\u001b[0m     idle_wires\u001b[38;5;241m=\u001b[39midle_wires,\n\u001b[1;32m   1925\u001b[0m     with_layout\u001b[38;5;241m=\u001b[39mwith_layout,\n\u001b[1;32m   1926\u001b[0m     fold\u001b[38;5;241m=\u001b[39mfold,\n\u001b[1;32m   1927\u001b[0m     ax\u001b[38;5;241m=\u001b[39max,\n\u001b[1;32m   1928\u001b[0m     initial_state\u001b[38;5;241m=\u001b[39minitial_state,\n\u001b[1;32m   1929\u001b[0m     cregbundle\u001b[38;5;241m=\u001b[39mcregbundle,\n\u001b[1;32m   1930\u001b[0m     wire_order\u001b[38;5;241m=\u001b[39mwire_order,\n\u001b[1;32m   1931\u001b[0m )\n",
+      "File \u001b[0;32m~/anaconda3/lib/python3.11/site-packages/qiskit/visualization/circuit/circuit_visualization.py:292\u001b[0m, in \u001b[0;36mcircuit_drawer\u001b[0;34m(circuit, scale, filename, style, output, interactive, plot_barriers, reverse_bits, justify, vertical_compression, idle_wires, with_layout, fold, ax, initial_state, cregbundle, wire_order)\u001b[0m\n\u001b[1;32m    277\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m _generate_latex_source(\n\u001b[1;32m    278\u001b[0m         circuit,\n\u001b[1;32m    279\u001b[0m         filename\u001b[38;5;241m=\u001b[39mfilename,\n\u001b[0;32m   (...)\u001b[0m\n\u001b[1;32m    289\u001b[0m         wire_order\u001b[38;5;241m=\u001b[39mcomplete_wire_order,\n\u001b[1;32m    290\u001b[0m     )\n\u001b[1;32m    291\u001b[0m \u001b[38;5;28;01melif\u001b[39;00m output \u001b[38;5;241m==\u001b[39m \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mmpl\u001b[39m\u001b[38;5;124m\"\u001b[39m:\n\u001b[0;32m--> 292\u001b[0m     image \u001b[38;5;241m=\u001b[39m _matplotlib_circuit_drawer(\n\u001b[1;32m    293\u001b[0m         circuit,\n\u001b[1;32m    294\u001b[0m         scale\u001b[38;5;241m=\u001b[39mscale,\n\u001b[1;32m    295\u001b[0m         filename\u001b[38;5;241m=\u001b[39mfilename,\n\u001b[1;32m    296\u001b[0m         style\u001b[38;5;241m=\u001b[39mstyle,\n\u001b[1;32m    297\u001b[0m         plot_barriers\u001b[38;5;241m=\u001b[39mplot_barriers,\n\u001b[1;32m    298\u001b[0m         reverse_bits\u001b[38;5;241m=\u001b[39mreverse_bits,\n\u001b[1;32m    299\u001b[0m         justify\u001b[38;5;241m=\u001b[39mjustify,\n\u001b[1;32m    300\u001b[0m         idle_wires\u001b[38;5;241m=\u001b[39midle_wires,\n\u001b[1;32m    301\u001b[0m         with_layout\u001b[38;5;241m=\u001b[39mwith_layout,\n\u001b[1;32m    302\u001b[0m         fold\u001b[38;5;241m=\u001b[39mfold,\n\u001b[1;32m    303\u001b[0m         ax\u001b[38;5;241m=\u001b[39max,\n\u001b[1;32m    304\u001b[0m         initial_state\u001b[38;5;241m=\u001b[39minitial_state,\n\u001b[1;32m    305\u001b[0m         cregbundle\u001b[38;5;241m=\u001b[39mcregbundle,\n\u001b[1;32m    306\u001b[0m         wire_order\u001b[38;5;241m=\u001b[39mcomplete_wire_order,\n\u001b[1;32m    307\u001b[0m     )\n\u001b[1;32m    308\u001b[0m \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[1;32m    309\u001b[0m     \u001b[38;5;28;01mraise\u001b[39;00m VisualizationError(\n\u001b[1;32m    310\u001b[0m         \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mInvalid output type \u001b[39m\u001b[38;5;132;01m%s\u001b[39;00m\u001b[38;5;124m selected. The only valid choices \u001b[39m\u001b[38;5;124m\"\u001b[39m\n\u001b[1;32m    311\u001b[0m         \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mare text, latex, latex_source, and mpl\u001b[39m\u001b[38;5;124m\"\u001b[39m \u001b[38;5;241m%\u001b[39m output\n\u001b[1;32m    312\u001b[0m     )\n",
+      "File \u001b[0;32m~/anaconda3/lib/python3.11/site-packages/qiskit/visualization/circuit/circuit_visualization.py:662\u001b[0m, in \u001b[0;36m_matplotlib_circuit_drawer\u001b[0;34m(circuit, scale, filename, style, plot_barriers, reverse_bits, justify, idle_wires, with_layout, fold, ax, initial_state, cregbundle, wire_order)\u001b[0m\n\u001b[1;32m    659\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m fold \u001b[38;5;129;01mis\u001b[39;00m \u001b[38;5;28;01mNone\u001b[39;00m:\n\u001b[1;32m    660\u001b[0m     fold \u001b[38;5;241m=\u001b[39m \u001b[38;5;241m25\u001b[39m\n\u001b[0;32m--> 662\u001b[0m qcd \u001b[38;5;241m=\u001b[39m _matplotlib\u001b[38;5;241m.\u001b[39mMatplotlibDrawer(\n\u001b[1;32m    663\u001b[0m     qubits,\n\u001b[1;32m    664\u001b[0m     clbits,\n\u001b[1;32m    665\u001b[0m     nodes,\n\u001b[1;32m    666\u001b[0m     circuit,\n\u001b[1;32m    667\u001b[0m     scale\u001b[38;5;241m=\u001b[39mscale,\n\u001b[1;32m    668\u001b[0m     style\u001b[38;5;241m=\u001b[39mstyle,\n\u001b[1;32m    669\u001b[0m     reverse_bits\u001b[38;5;241m=\u001b[39mreverse_bits,\n\u001b[1;32m    670\u001b[0m     plot_barriers\u001b[38;5;241m=\u001b[39mplot_barriers,\n\u001b[1;32m    671\u001b[0m     fold\u001b[38;5;241m=\u001b[39mfold,\n\u001b[1;32m    672\u001b[0m     ax\u001b[38;5;241m=\u001b[39max,\n\u001b[1;32m    673\u001b[0m     initial_state\u001b[38;5;241m=\u001b[39minitial_state,\n\u001b[1;32m    674\u001b[0m     cregbundle\u001b[38;5;241m=\u001b[39mcregbundle,\n\u001b[1;32m    675\u001b[0m     with_layout\u001b[38;5;241m=\u001b[39mwith_layout,\n\u001b[1;32m    676\u001b[0m )\n\u001b[1;32m    677\u001b[0m \u001b[38;5;28;01mreturn\u001b[39;00m qcd\u001b[38;5;241m.\u001b[39mdraw(filename)\n",
+      "File \u001b[0;32m~/anaconda3/lib/python3.11/site-packages/qiskit/utils/classtools.py:111\u001b[0m, in \u001b[0;36m_WrappedMethod.__get__.<locals>.out\u001b[0;34m(*args, **kwargs)\u001b[0m\n\u001b[1;32m    108\u001b[0m \u001b[38;5;129m@functools\u001b[39m\u001b[38;5;241m.\u001b[39mwraps(method)\n\u001b[1;32m    109\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21mout\u001b[39m(\u001b[38;5;241m*\u001b[39margs, \u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39mkwargs):\n\u001b[1;32m    110\u001b[0m     \u001b[38;5;28;01mfor\u001b[39;00m callback \u001b[38;5;129;01min\u001b[39;00m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39m_before:\n\u001b[0;32m--> 111\u001b[0m         callback\u001b[38;5;241m.\u001b[39m\u001b[38;5;21m__get__\u001b[39m(obj, objtype)(\u001b[38;5;241m*\u001b[39margs, \u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39mkwargs)\n\u001b[1;32m    112\u001b[0m     retval \u001b[38;5;241m=\u001b[39m method(\u001b[38;5;241m*\u001b[39margs, \u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39mkwargs)\n\u001b[1;32m    113\u001b[0m     \u001b[38;5;28;01mfor\u001b[39;00m callback \u001b[38;5;129;01min\u001b[39;00m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39m_after:\n",
+      "File \u001b[0;32m~/anaconda3/lib/python3.11/site-packages/qiskit/utils/lazy_tester.py:39\u001b[0m, in \u001b[0;36m_RequireNow.__call__\u001b[0;34m(self, *_args, **_kwargs)\u001b[0m\n\u001b[1;32m     38\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21m__call__\u001b[39m(\u001b[38;5;28mself\u001b[39m, \u001b[38;5;241m*\u001b[39m_args, \u001b[38;5;241m*\u001b[39m\u001b[38;5;241m*\u001b[39m_kwargs):\n\u001b[0;32m---> 39\u001b[0m     \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39m_tester\u001b[38;5;241m.\u001b[39mrequire_now(\u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39m_feature)\n",
+      "File \u001b[0;32m~/anaconda3/lib/python3.11/site-packages/qiskit/utils/lazy_tester.py:223\u001b[0m, in \u001b[0;36mLazyDependencyManager.require_now\u001b[0;34m(self, feature)\u001b[0m\n\u001b[1;32m    221\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;28mself\u001b[39m:\n\u001b[1;32m    222\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m\n\u001b[0;32m--> 223\u001b[0m \u001b[38;5;28;01mraise\u001b[39;00m MissingOptionalLibraryError(\n\u001b[1;32m    224\u001b[0m     libname\u001b[38;5;241m=\u001b[39m\u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39m_name, name\u001b[38;5;241m=\u001b[39mfeature, pip_install\u001b[38;5;241m=\u001b[39m\u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39m_install, msg\u001b[38;5;241m=\u001b[39m\u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39m_msg\n\u001b[1;32m    225\u001b[0m )\n",
+      "\u001b[0;31mMissingOptionalLibraryError\u001b[0m: \"The 'pylatexenc' library is required to use 'MatplotlibDrawer'. You can install it with 'pip install pylatexenc'.\""
+     ]
+    }
+   ],
+   "source": [
+    "circuit.draw(output='mpl')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "ce041fe0",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from qiskit import QuantumCircuit"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1fe76d12",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from qiskit.visualization import plot_bloch_multivector"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "94b4edcf",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'QuantumCircuit' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[2], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m circuit \u001b[38;5;241m=\u001b[39m QuantumCircuit(\u001b[38;5;241m2\u001b[39m)\n\u001b[1;32m      2\u001b[0m circuit\u001b[38;5;241m.\u001b[39mh(\u001b[38;5;241m0\u001b[39m)\n\u001b[1;32m      3\u001b[0m circuit\u001b[38;5;241m.\u001b[39mcx(\u001b[38;5;241m0\u001b[39m, \u001b[38;5;241m1\u001b[39m)\n",
+      "\u001b[0;31mNameError\u001b[0m: name 'QuantumCircuit' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "circuit = QuantumCircuit(2)\n",
+    "circuit.h(0)\n",
+    "circuit.cx(0, 1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "c0f5259b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from qiskit import QuantumCircuit"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "5912f932",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "circuit = QuantumCircuit(2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "f950eb87",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<qiskit.circuit.instructionset.InstructionSet at 0x121b89540>"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "circuit.h(0)\n",
+    "circuit.cx(0, 1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "f4f891a5",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "image/png": "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",
+      "text/plain": [
+       "<Figure size 287.294x200.667 with 1 Axes>"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "circuit.draw(output='mpl')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "118ebd63",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from qiskit.circuit.library import FourierChecking "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "e0f0444d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from qiskit.visualization import plot_histogram"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "5707da78",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "f292b8cd",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'ForuierChecking' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[10], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m circ \u001b[38;5;241m=\u001b[39m ForuierChecking(f\u001b[38;5;241m=\u001b[39mf,g\u001b[38;5;241m=\u001b[39mg)\n",
+      "\u001b[0;31mNameError\u001b[0m: name 'ForuierChecking' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "circ = ForuierChecking(f=f,g=g)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "8d24f69b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "circ = FourierChecking(f=f,g=g)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "0b44ea7d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "f=[1,-1,-1,-1]\n",
+    "g=[1,1,-1,-1]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "307dfdac",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "SyntaxError",
+     "evalue": "invalid syntax (3611739410.py, line 1)",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;36m  Cell \u001b[0;32mIn[13], line 1\u001b[0;36m\u001b[0m\n\u001b[0;31m    circ =. FourierCheking(f=f,g=g)\u001b[0m\n\u001b[0m          ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m invalid syntax\n"
+     ]
+    }
+   ],
+   "source": [
+    "circ =. FourierCheking(f=f,g=g)\n",
+    "circ.draw()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "cf0b3477",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'FourierCheking' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[14], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m circ \u001b[38;5;241m=\u001b[39m FourierCheking(f\u001b[38;5;241m=\u001b[39mf, g\u001b[38;5;241m=\u001b[39mg)\n",
+      "\u001b[0;31mNameError\u001b[0m: name 'FourierCheking' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "circ = FourierCheking(f=f, g=g)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "d97ea522",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'FourierCheking' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[15], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m circ \u001b[38;5;241m=\u001b[39m FourierCheking(f\u001b[38;5;241m=\u001b[39mf, g\u001b[38;5;241m=\u001b[39mg)\n\u001b[1;32m      2\u001b[0m circ\u001b[38;5;241m.\u001b[39mdraw()\n",
+      "\u001b[0;31mNameError\u001b[0m: name 'FourierCheking' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "circ = FourierCheking(f=f, g=g)\n",
+    "circ.draw()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "0baf3782",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.4"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
